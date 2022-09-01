@@ -33,6 +33,11 @@ module InsuranceAdviser
           request_specs: false #skips RSpec's defaults for adding integration-level specs in spec/requests. We'll cover this in chapter 8, at which time we'll just create our own files.
         #g.fixture_replacement :factory_hot, dir:"spec/factories" #tells Rails to generate factories instead of fixtures, and to save them in the spec/factories directory. Don't forget, just because RSpec won't be generating some files for you doesn't mean you can't add sine Tot crample if vou need to add a helper
     end
+
+    # Disable the root node, eg: {projects: [{..}, {..}]}
+    def default_serializer_options
+      {root: false}
+    end  
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

@@ -1,7 +1,6 @@
 class Company < ApplicationRecord
   include ActiveModel::Validations
-  extend Enumerize
-
+  
   validates :natural_person, inclusion: { in: [ true, false ] }
   validates :nacebel_codes, array: { length: { maximum: 5 } }
   validates_presence_of :annual_revenue, :natural_person, :nacebel_codes, :enterprise_number, :legal_name

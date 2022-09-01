@@ -5,7 +5,6 @@ ruby '3.1.2'
 
 
 gem 'faker'
-gem 'enumerize'
 gem 'active_model_serializers', '~> 0.10.13'
 gem "interactor-rails", "~> 2.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

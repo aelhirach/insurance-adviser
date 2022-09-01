@@ -32,9 +32,9 @@ class APIService {
 
     const url = `/quotes/${id}`
 
-    if (cache[url]) {
+      if (cache[url]) {
         return cache[url];
-    }
+      }
 
       const result = await instanceAxios.get(url);
       cache[url] = result.data; //

@@ -44,46 +44,48 @@ const RegisterForm = () => {
 
   const RegisterSchema = Yup.object({
     lead: Yup.object({
-        first_name: Yup.string().required("first_name required"),
-        last_name: Yup.string().required(" last_name required"),
+        firstName: Yup.string().required("firstName required"),
+        lastName: Yup.string().required(" lastName required"),
         address: Yup.string().required("address required"),
         email: Yup.string().email("email invalid").required("email required"),
-        phone_number: Yup.string().required("phone_number required"),
+        phoneNumber: Yup.string().required("phoneNumber required"),
      }),
      company: Yup.object({
-          annual_revenue: Yup.string().matches(/^\d{2,10}$/, "annual_revenue invalid").required("annual_revenue required"),
-          nacebel_codes: Yup.array().of(Yup.string().matches(/^\d{5}$/, "code invalid").required("code required")).min(1, "nacebel_codes required"),
-          enterprise_number: Yup.string().matches(/^[0]\d{9}$/, "enterprise number invalid").required("enterprise_number required"),
-          legal_name: Yup.string().required("legal_name required")
+          annualRevenue: Yup.string().matches(/^\d{2,10}$/, "annualRevenue invalid").required("annualRevenue required"),
+          nacebelCodes: Yup.array().of(Yup.string().matches(/^\d{5}$/, "code invalid").required("code required")).min(1, "nacebelCodes required"),
+          enterpriseNumber: Yup.string().matches(/^[0]\d{9}$/, "enterprise number invalid").required("enterpriseNumber required"),
+          naturalPerson: Yup.boolean().required("naturalPerson required"),
+          legalName: Yup.string().required("legalName required")
       }),
-      deductible_formula: Yup.string(),
-      coverage_ceiling_formula: Yup.string()
+      deductibleFormula: Yup.string(),
+      coverageCeilingFormula: Yup.string()
 
 })
 
 
   useEffect(() => {
     if (requestQuoteResponse && requestQuoteResponse.success) {
-      navigate(`/quote-simulation/${requestQuoteResponse?.data.quote_id}`);
+      navigate(`/quote-simulation/${requestQuoteResponse?.data.quoteId}`);
     }
   }, [requestQuoteResponse])
 
   const initialValues = {
     lead:{
-      first_name: "",
-      last_name: "",
+      firstName: "",
+      lastName: "",
       address: "",
       email: "",
-      phone_number: ""
+      phoneNumber: ""
     },
     company: {
-          annual_revenue: "",
-          nacebel_codes: [],
-          enterprise_number: "",
-          legal_name: "",
+          annualRevenue: "",
+          nacebelCodes: [],
+          enterpriseNumber: "",
+          naturalPerson: false,
+          legalName: "",
       },
-    deductible_formula: "",
-    coverage_ceiling_formula: ""
+    deductibleFormula: "",
+    coverageCeilingFormula: ""
   };
   return (
     <Formik
@@ -118,35 +120,35 @@ const RegisterForm = () => {
               <BlockHeading>Client Infos</BlockHeading>
               <InputFieldRow>
                 <InputFieldCol>
-                  <Label htmlFor="lead.first_name">
+                  <Label htmlFor="lead.firstName">
                     firstname
                   </Label>
                   <Input
                     type="text"
-                    name="lead.first_name"
+                    name="lead.firstName"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.lead.first_name}
+                    value={values.lead.firstName}
                     placeholder="firstname"
                   />
-                  {errors.lead?.first_name && touched.lead?.first_name && (
-                    <ErrorMessage>{errors.lead?.first_name}</ErrorMessage>
+                  {errors.lead?.firstName && touched.lead?.firstName && (
+                    <ErrorMessage>{errors.lead?.firstName}</ErrorMessage>
                   )}
                 </InputFieldCol>
                 <InputFieldCol>
-                  <Label htmlFor="lead.last_name">
+                  <Label htmlFor="lead.lastName">
                     lastname
                   </Label>
                   <Input
                     type="text"
-                    name="lead.last_name"
+                    name="lead.lastName"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.lead.last_name}
+                    value={values.lead.lastName}
                     placeholder="lastname"
                   />
-                  {errors.lead?.last_name && touched.lead?.last_name && (
-                    <ErrorMessage>{errors.lead?.last_name}</ErrorMessage>
+                  {errors.lead?.lastName && touched.lead?.lastName && (
+                    <ErrorMessage>{errors.lead?.lastName}</ErrorMessage>
                   )}
                 </InputFieldCol>
               </InputFieldRow>
@@ -188,19 +190,19 @@ const RegisterForm = () => {
 
               <InputFieldRow>
                 <InputFieldCol>
-                  <Label htmlFor="lead.phone_number">
+                  <Label htmlFor="lead.phoneNumber">
                     phone number
                   </Label>
                   <Input
                     type="text"
-                    name="lead.phone_number"
+                    name="lead.phoneNumber"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.lead.phone_number}
+                    value={values.lead.phoneNumber}
                     placeholder="phone number"
                   />
-                  {errors.lead?.phone_number && touched.lead?.phone_number && (
-                    <ErrorMessage>{errors.lead?.phone_number}</ErrorMessage>
+                  {errors.lead?.phoneNumber && touched.lead?.phoneNumber && (
+                    <ErrorMessage>{errors.lead?.phoneNumber}</ErrorMessage>
                   )}
                 </InputFieldCol>
               </InputFieldRow>
@@ -211,39 +213,39 @@ const RegisterForm = () => {
                             <BlockHeading>Company Infos</BlockHeading>
                             <InputFieldRow>
                               <InputFieldCol>
-                                <Label htmlFor="company.annual_revenue">
-                                  annual_revenue
+                                <Label htmlFor="company.annualRevenue">
+                                  annualRevenue
                                 </Label>
                                 <Input
                                   type="number"
-                                  name="company.annual_revenue"
+                                  name="company.annualRevenue"
                                   onChange={handleChange}
                                   onBlur={handleBlur}
-                                  value={values.lead.annual_revenue}
+                                  value={values.lead.annualRevenue}
                                   placeholder="annual revenue"
                                 />
-                                {errors.company?.annual_revenue && touched.company?.annual_revenue && (
-                                  <ErrorMessage>{errors.company?.annual_revenue}</ErrorMessage>
+                                {errors.company?.annualRevenue && touched.company?.annualRevenue && (
+                                  <ErrorMessage>{errors.company?.annualRevenue}</ErrorMessage>
                                 )}
                               </InputFieldCol>
                             </InputFieldRow>
                             <InputFieldRow>
                               <InputFieldCol className="col-2">
-                                <Label htmlFor="company.nacebel_codes">
+                                <Label htmlFor="company.nacebelCodes">
                                   NACE BEL CODES
                                 </Label>
 
                                 <FieldArray
-                                    name="company.nacebel_codes"
+                                    name="company.nacebelCodes"
                                     render={arrayHelpers => (
                                       <div>
-                                      {values.company.nacebel_codes && values.company.nacebel_codes.length > 0 ? (
-                                          values.company.nacebel_codes.map((nacebel_code, index) => (
+                                      {values.company.nacebelCodes && values.company.nacebelCodes.length > 0 ? (
+                                          values.company.nacebelCodes.map((nacebelCode, index) => (
                                  <div key={index}>
-                                   <Field type="number" name={`company.nacebel_codes.${index}`} />
+                                   <Field type="number" name={`company.nacebelCodes.${index}`} />
                                    <button
                                      type="button"
-                                     onClick={() => arrayHelpers.remove(index)} // remove a nacebel_code from the list
+                                     onClick={() => arrayHelpers.remove(index)} // remove a nacebelCode from the list
                                    >
                                      -
                                    </button>
@@ -257,53 +259,67 @@ const RegisterForm = () => {
                                ))
                                           ) : (
                                             <button type="button" onClick={() => arrayHelpers.push('')}>
-                                            {/* show this when user has removed all nacebel_codes from the list */}
-                                            Add a nacebel_code
+                                            {/* show this when user has removed all nacebelCodes from the list */}
+                                            Add a nacebelCode
                                             </button>
                                       )}
                            </div>
                          )}
                        />
-                                {errors.company?.nacebel_codes && touched.company?.nacebel_codes && (
-                                  <ErrorMessage>{errors.company?.nacebel_codes}</ErrorMessage>
+                                {errors.company?.nacebelCodes && touched.company?.nacebelCodes && (
+                                  <ErrorMessage>{errors.company?.nacebelCodes}</ErrorMessage>
                                 )}
                               </InputFieldCol>
+                              <InputFieldCol className="col-2">
+                                <Label htmlFor="company.naturalPerson">
+                                  Natural Person
+                                </Label>
+                                <Label>
+                                  <Field type="checkbox" name="company.naturalPerson" /> {`${values.company.naturalPerson}`}
+                                </Label>
+                                {errors.company?.naturalPerson && touched.company?.naturalPerson && (
+                                  <ErrorMessage>{errors.company?.naturalPerson}</ErrorMessage>
+                                )}
+                              </InputFieldCol>
+
                             </InputFieldRow>
 
                             <InputFieldRow>
                               <InputFieldCol>
-                                <Label htmlFor="company.enterprise_number">
+                                <Label htmlFor="company.enterpriseNumber">
                                   enterprise number
                                 </Label>
                                 <Input
                                   type="text"
-                                  name="company.enterprise_number"
+                                  name="company.enterpriseNumber"
                                   onChange={handleChange}
                                   onBlur={handleBlur}
-                                  value={values.company.enterprise_number}
+                                  value={values.company.enterpriseNumber}
                                   placeholder="enterprise number"
                                 />
-                                {errors.company?.enterprise_number && touched.company?.enterprise_number && (
-                                  <ErrorMessage>{errors.company?.enterprise_number}</ErrorMessage>
+                                {errors.company?.enterpriseNumber && touched.company?.enterpriseNumber && (
+                                  <ErrorMessage>{errors.company?.enterpriseNumber}</ErrorMessage>
                                 )}
                               </InputFieldCol>
                               <InputFieldCol>
-                                <Label htmlFor="company.legal_name">
+                                <Label htmlFor="company.legalName">
                                   legalname
                                 </Label>
                                 <Input
                                   type="text"
-                                  name="company.legal_name"
+                                  name="company.legalName"
                                   onChange={handleChange}
                                   onBlur={handleBlur}
-                                  value={values.company.legal_name}
+                                  value={values.company.legalName}
                                   placeholder="legalname"
                                 />
-                                {errors.company?.legal_name && touched.company?.legal_name && (
-                                  <ErrorMessage>{errors.company?.legal_name}</ErrorMessage>
+                                {errors.company?.legalName && touched.company?.legalName && (
+                                  <ErrorMessage>{errors.company?.legalName}</ErrorMessage>
                                 )}
                               </InputFieldCol>
                             </InputFieldRow>
+
+
 
 
             </BlockGroup>
@@ -312,13 +328,13 @@ const RegisterForm = () => {
               <BlockHeading>Formulas</BlockHeading>
               <InputFieldRow>
                 <InputFieldCol className="col-2">
-                  <Label htmlFor="deductible_formula">
+                  <Label htmlFor="deductibleFormula">
                     deductible formula
                   </Label>
                   <Select
-                    label="deductible_formula"
-                    name="deductible_formula"
-                    value={values.deductible_formula}
+                    label="deductibleFormula"
+                    name="deductibleFormula"
+                    value={values.deductibleFormula}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   >
@@ -327,18 +343,18 @@ const RegisterForm = () => {
                     <option value="medium">MEDIUM</option>
                     <option value="large">LARGE</option>
                   </Select>
-                  {errors.deductible_formula && touched.deductible_formula && (
-                    <ErrorMessage>{errors.deductible_formula}</ErrorMessage>
+                  {errors.deductibleFormula && touched.deductibleFormula && (
+                    <ErrorMessage>{errors.deductibleFormula}</ErrorMessage>
                   )}
                 </InputFieldCol>
                 <InputFieldCol className="col-2">
-                  <Label htmlFor="coverage_ceiling_formula">
+                  <Label htmlFor="coverageCeilingFormula">
                     coverage ceiling formula
                   </Label>
                   <Select
-                    label="coverage_ceiling_formula"
-                    name="coverage_ceiling_formula"
-                    value={values.coverage_ceiling_formula}
+                    label="coverageCeilingFormula"
+                    name="coverageCeilingFormula"
+                    value={values.coverageCeilingFormula}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   >
@@ -346,8 +362,8 @@ const RegisterForm = () => {
                     <option value="small">SMALL</option>
                     <option value="large">LARGE</option>
                   </Select>
-                  {errors.coverage_ceiling_formula && touched.coverage_ceiling_formula && (
-                    <ErrorMessage>{errors.coverage_ceiling_formula}</ErrorMessage>
+                  {errors.coverageCeilingFormula && touched.coverageCeilingFormula && (
+                    <ErrorMessage>{errors.coverageCeilingFormula}</ErrorMessage>
                   )}
                 </InputFieldCol>
               </InputFieldRow>

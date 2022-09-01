@@ -80,8 +80,6 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
-    enumerize (2.5.0)
-      activesupport (>= 3.2)
     erubi (1.11.0)
     faker (2.22.0)
       i18n (>= 1.8.11, < 2)
@@ -240,7 +238,6 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   dotenv-rails
-  enumerize
   faker
   interactor-rails (~> 2.0)
   jbuilder (~> 2.7)

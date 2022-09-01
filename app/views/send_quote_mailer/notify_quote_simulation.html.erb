@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      A new Quote simulation for <%= @company[:legal_name] %>.
+    </p>
+    <br/>
+    <ul>
+        <li><%= "Quote_Id : #{@quote[:id]}" %></li>
+        <li><%= "Company name : #{@company[:legal_name]}" %></li>
+    </ul>
+    <p>
+      For more details click the URL below :
+    </p>
+    <br/>
+    <%= link_to @url do %>
+        <b><%= @url %></b>
+    <% end %>
+  </body>
+</html>
