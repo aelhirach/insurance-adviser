@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
-
+gem 'mailtrap'
 gem 'faker'
 gem 'active_model_serializers', '~> 0.10.13'
 gem "interactor-rails", "~> 2.0"
