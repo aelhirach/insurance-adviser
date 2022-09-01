@@ -1,12 +1,11 @@
 class Api::QuotesController < ApplicationController
     skip_before_action :verify_authenticity_token
-
     before_action :set_quote, only: %i[show]
 
     # GET /quotes/[:id]
     def show
       if @quote
-        render json: { success: true, message: "success", data: QuoteSerializer.new(@quote)}, status: :ok
+        render json: { success: true, message: "success", data: QuoteSerializer.new(@quote, {:include_company => true}) }, status: :ok
       else
         render json: { errors: @quote&.errors&.full_messages }, status: :unprocessable_entity
       end
@@ -21,7 +20,6 @@ class Api::QuotesController < ApplicationController
             render json: { success: false, message: "quote not computed", data: {available: false, message: result.error} }, status:  :unprocessable_entity
         end
     end
-
     # private functions
     private
     def request_params

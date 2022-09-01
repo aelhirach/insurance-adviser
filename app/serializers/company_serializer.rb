@@ -1,6 +1,6 @@
 class CompanySerializer < ActiveModel::Serializer
   type :company
-  attributes :company_id, :available,  :cover_premiums
+  attributes :annual_revenue, :natural_person, :nacebel_codes, :enterprise_number, :legal_name
   belongs_to :lead
   def company_id
     object.id

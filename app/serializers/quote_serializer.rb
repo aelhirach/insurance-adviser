@@ -1,6 +1,7 @@
 class QuoteSerializer < ActiveModel::Serializer
   type :quote
   attributes :coverage_ceiling, :deductible, :quote_id, :cover_premiums
+  belongs_to :company, serializer: CompanySerializer, if: -> { @instance_options[:include_company].present? }
 
   def quote_id
     object.id
