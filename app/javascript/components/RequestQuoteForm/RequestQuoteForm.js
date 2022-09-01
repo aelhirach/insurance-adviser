@@ -374,7 +374,7 @@ const RegisterForm = () => {
               <Button type='submit' disabled={isSubmitting}>Submit</Button>
             </RegisterFooter>
             {isSubmitting && (<CircularProgressStyle />)}
-            {errorRequestQuote && errorRequestQuote.response?.data?.errors?.map((message ,i) => <ErrorMessage key={i}>{message}</ErrorMessage>)}
+            {errorRequestQuote && errorRequestQuote.response?.data?.message?.map((message ,i) => <ErrorMessage key={i}>{message}</ErrorMessage>)}
           </FormWrap>
         </Form>
       )}
