@@ -19,10 +19,10 @@ require 'faker'
                          email: Faker::Internet.unique.email})
 
 
-      company = Company.create!({annual_revenue: Faker::Number.number(digits: 5).ceil(-4),
+      company = Company.create({annual_revenue: Faker::Number.number(digits: 5).ceil(-4),
                              enterprise_number: Faker::Number.unique.leading_zero_number(digits: 10),
                              legal_name: Faker::Company.unique.name,
-                             natural_person: true,
+                             natural_person: false,
                              nacebel_codes: ['86210' , '86220', '86230' , '86901', '86902' , '86903'],
                             lead: lead})
 

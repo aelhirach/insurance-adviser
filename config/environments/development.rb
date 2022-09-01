@@ -44,7 +44,7 @@ Rails.application.configure do
     :user_name => ENV["MAIL_TRAP_USERNAME"],
     :password => ENV["MAIL_TRAP_PASSWORD"],
     :address => ENV["MAIL_TRAP_ADDRESS"],
-    :domain => ENV["MAIL_TRAP_HOST"],
+    :domain => ENV["MAIL_TRAP_ADDRESS"],
     :port => '25',
     :authentication => :cram_md5
   }

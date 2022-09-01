@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_08_28_155508) do
     t.integer "annual_revenue", null: false
     t.string "enterprise_number", limit: 10, null: false
     t.string "legal_name", null: false
-    t.boolean "natural_person", default: true, null: false
+    t.boolean "natural_person", null: false
     t.string "nacebel_codes", default: [], null: false, array: true
     t.bigint "lead_id", null: false
     t.datetime "created_at", precision: 6, null: false

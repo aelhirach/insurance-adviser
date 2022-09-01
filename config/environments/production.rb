@@ -62,10 +62,17 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "insurance_adviser_production"
 
+  config.action_mailer.default_url_options = {:host => ENV["MAIL_TRAP_HOST"] }
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_caching = false
-  config.action_mailer.delivery_method = :mailtrap
-  config.action_mailer.mailtrap_settings = {
-    api_key: ENV.fetch('MAILTRAP_API_TOKEN')
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :user_name => ENV["MAIL_TRAP_USERNAME"],
+    :password => ENV["MAIL_TRAP_PASSWORD"],
+    :address => ENV["MAIL_TRAP_ADDRESS"],
+    :domain => ENV["MAIL_TRAP_ADDRESS"],
+    :port => '2525',
+    :authentication => :cram_md5
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
