@@ -27,6 +27,10 @@ To get the Rails server running locally:
 - `rake db:migrate` to make all database migrations
 - `rails s` to start the local server
 
+- Viste the Home page 
+```
+http://localhost:3000/welcome/index
+```
 
 # Code Overview
 
