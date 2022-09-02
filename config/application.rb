@@ -22,8 +22,10 @@ Bundler.require(*Rails.groups)
 module InsuranceAdviser
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+
     config.load_defaults 6.1
     config.generators do |g|
+        # g.fixture_replacement :factory_bot, dir:"spec/factories" #tells Rails to generate factories instead of fixtures, and to save them in the spec/factories directory. Don't forget, just because RSpec won't be generating some files for you doesn't mean you can't add sine Tot crample if vou need to add a helper
         g.test_framework :rspec,
           fixtures: true, #specifies to generate a fixture for each model (using a Factory Girl factor instead of an actual fixture)
           view_specs: false, #says to skip generating view specs. I won't cover them in this book; instea we'll use feature specs to test interface elements.
@@ -31,13 +33,12 @@ module InsuranceAdviser
           routing_specs: false, #omits a spec file for your config/routes. rb file. If your application is simple, as the one in this book will be, you're probably safe skipping these specs. As you application grows, however, and takes on more complex routing, it's a good idea to incorporate
           controller_specs: false,
           request_specs: false #skips RSpec's defaults for adding integration-level specs in spec/requests. We'll cover this in chapter 8, at which time we'll just create our own files.
-        #g.fixture_replacement :factory_hot, dir:"spec/factories" #tells Rails to generate factories instead of fixtures, and to save them in the spec/factories directory. Don't forget, just because RSpec won't be generating some files for you doesn't mean you can't add sine Tot crample if vou need to add a helper
     end
 
     # Disable the root node, eg: {projects: [{..}, {..}]}
     def default_serializer_options
       {root: false}
-    end  
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

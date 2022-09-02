@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  skip_before_action :verify_authenticity_token
   # Convert lowerCamelCase params to snake_case automatically
   before_action :underscore_params!
 
