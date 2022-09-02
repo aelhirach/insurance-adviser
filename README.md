@@ -44,6 +44,7 @@ Production
 Development & Test 
 - [rspec-rails](https://github.com/rspec/rspec-rails) brings the RSpec testing framework to Ruby on Rails as a drop-in alternative to its default testing framework, Minitest.
 - [dotenv-rails](https://github.com/bkeepers/dotenv) - Shim to load environment variables from .env into ENV in development.
+- [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails) - This gem help in generating data for Test, is a fixtures replacement with a straightforward definition syntax.
 
 
 
@@ -88,39 +89,24 @@ MAIL_TRAP_ADDRESS=
 
 By default Ruby on Rails will throw an exception when a request doesn't contain a valid CSRF token. For the sake of simplicity (In reality we must use a session or JWT Token) we can tell Rails to skip this verification [app/controllers/application_controller.rb](https://github.com/aelhirach/insurance-adviser/blob/master/app/controllers/application_controller.rb#L2).
 
-### Authentication
 
-Requests are authenticated using the `Authorization` header with a valid JWT. The [application_controller.rb#authenticate_user!](https://github.com/gothinkster/rails-realworld-example-app/blob/master/app/controllers/application_controller.rb#L32) filter is used like the one provided by Devise, it will respond with a 401 status code if the request requires authentication that hasn't been provided. The [application_controller.rb#authenticate_user](https://github.com/gothinkster/rails-realworld-example-app/blob/master/app/controllers/application_controller.rb#L18) filter is called on every request to try and authenticate the `Authorization` header. It will only interrupt the request if a JWT is present and invalid. The user's id is then parsed from the JWT and stored in an instance variable called [`@current_user_id`](https://github.com/gothinkster/rails-realworld-example-app/blob/master/app/controllers/application_controller.rb#L24). `@current_user_id` can be used in any controller when we only need the user's id to save a trip to the database. Otherwise, we can call [`current_user`](https://github.com/gothinkster/rails-realworld-example-app/blob/master/app/controllers/application_controller.rb#L36) to fetch the authenticated user from the database.
+# Testing
+### Running specs
 
-Devise only requires an email and password upon registration. To allow additional parameters on sign up, we use [application_controller#configure_permitted_parameters](https://github.com/gothinkster/rails-realworld-example-app/blob/master/app/controllers/application_controller.rb#L14) to allow additional parameters.
+```sh
+# Default: Run all spec files (i.e., those matching spec/**/*_spec.rb)
+$ bundle exec rspec
 
+# Run all spec files in a single directory (recursively)
+$ bundle exec rspec spec/models
 
+# Run a single spec file
+$ bundle exec rspec spec/controllers/accounts_controller_spec.rb
 
+# Run a single example from a spec file (by line number)
+$ bundle exec rspec spec/controllers/accounts_controller_spec.rb:8
 
-# README
+# See all options for running specs
+$ bundle exec rspec --help
+```
 
-Rails Signup Thankyou
-================
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
