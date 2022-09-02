@@ -1,4 +1,4 @@
-# ![Insurance Adviser]([project-logo.png](https://lh4.googleusercontent.com/-e7ASqd31bjU/AAAAAAAAAAI/AAAAAAAAAAA/GeVGekwYpDQ/s88-p-k-no-ns-nd/photo.jpg))
+# ![Insurance Adviser](https://lh4.googleusercontent.com/-e7ASqd31bjU/AAAAAAAAAAI/AAAAAAAAAAA/GeVGekwYpDQ/s88-p-k-no-ns-nd/photo.jpg)
 
 
 
@@ -43,11 +43,13 @@ Development & Test
 
 
 
-## Folders
+## Important Folders
 
 - `app/models` - Contains the database models for the application where we can define methods, validations, queries, and relations to other models.
-- `app/views` - Contains templates for generating the JSON output for the API
-- `app/controllers` - Contains the controllers where requests are routed to their actions, where we find and manipulate our models and return them for the views to render.
+- `app/views` - Contains the entry point (HomePage Template) which refers to the javascript folder with a pack_tag. It contains also the template of the mailers. 
+- `app/interactors` - Contains the application's business logic. Each interactor represents one thing that application does.
+- `app/serializers` - Contains templates for generating the JSON output for the API
+- `app/controllers` - Contains the controllers where requests are routed to their actions, where we find and manipulate our models and return JSON response.
 - `config` - Contains configuration files for our Rails application and for our database, along with an `initializers` folder for scripts that get run on boot.
 - `db` - Contains the migrations needed to create our database schema.
 
@@ -55,12 +57,12 @@ Development & Test
 
 ### camelCase Payloads
 
-- [`config/initializers/jbuilder.rb`](https://github.com/gothinkster/rails-realworld-example-app/blob/master/config/initializers/jbuilder.rb) - Jbuilder configuration for camelCase output
-- [`app/controllers/application_controller.rb#underscore_params!`](https://github.com/gothinkster/rails-realworld-example-app/blob/master/app/controllers/application_controller.rb#L44) - Convert camelCase params into snake_case params
+- [`config/initializers/active_model_serializer.rb`](https://github.com/aelhirach/insurance-adviser/blob/master/config/initializers/active_model_serializer.rb) - Active Model Serializer configuration for [camelCase](https://github.com/rails-api/active_model_serializers/blob/a032201a91cbca407211bca0392ba881eef1f7ba/docs/general/key_transforms.md) output
+- [`app/controllers/application_controller.rb#underscore_params!`](https://github.com/aelhirach/insurance-adviser/blob/master/app/controllers/application_controller.rb#L27) - Convert camelCase params into snake_case params
 
 ### null_session
 
-By default Ruby on Rails will throw an exception when a request doesn't contain a valid CSRF token. Since we're using JWT's to authenticate users instead of sessions, we can tell Rails to use an empty session instead of throwing an exception for requests by specifying `:null_session` in [app/controllers/application_controller.rb](https://github.com/gothinkster/rails-realworld-example-app/blob/master/app/controllers/application_controller.rb#L4).
+By default Ruby on Rails will throw an exception when a request doesn't contain a valid CSRF token. Since we're using JWT's to authenticate users instead of sessions, we can tell Rails to use an empty session instead of throwing an exception for requests by specifying `:null_session` in [app/controllers/application_controller.rb](https://github.com/aelhirach/insurance-adviser/blob/master/app/controllers/application_controller.rb#L2).
 
 ### Authentication
 
