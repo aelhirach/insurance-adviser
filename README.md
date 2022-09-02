@@ -30,7 +30,7 @@ To get the Rails server running locally:
 
 - Viste the Home page 
 ```
-http://localhost:3000/welcome/index
+http://localhost:3000
 ```
 
 # Code Overview
