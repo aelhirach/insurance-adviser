@@ -1,6 +1,7 @@
 # ![Insurance Adviser](https://lh4.googleusercontent.com/-e7ASqd31bjU/AAAAAAAAAAI/AAAAAAAAAAA/GeVGekwYpDQ/s88-p-k-no-ns-nd/photo.jpg)
 
-
+#Live Demo
+A live demo is running with Heroku  at: http://insurance-adviser.herokuapp.com/
 
 # Requirements
 
@@ -91,6 +92,9 @@ By default Ruby on Rails will throw an exception when a request doesn't contain 
 
 
 # Testing
+
+The test has not been implemented for this project 
+
 ### Running specs
 
 ```sh
