@@ -53,16 +53,36 @@ Development & Test
 - `config` - Contains configuration files for our Rails application and for our database, along with an `initializers` folder for scripts that get run on boot.
 - `db` - Contains the migrations needed to create our database schema.
 
+## Helpers 
+
+- [`app/models/concerns/array_validator.rb`](https://github.com/aelhirach/insurance-adviser/blob/master/app/models/concerns/array_validator.rb) - ArrayValidator : Validate an array data type in Ruby on Rails using a custom validator - PostGresQL allows arrays as a DB type.
+
+
 ## Configuration
+### MailTrap 
+MailTrap is a SMTP server designed to run in your dev/test environment, that is designed to catch any email you or your application is sending, and display it in a web interface instead of sending to real world.
+
+Here is how your SMTP server configuration to start sending email with Mailtrap.
+- [`app/config/environments/development.rb`](app/config/environments/development.rb#L41) 
+- [`app/config/environments/production.rb`](app/config/environments/development.rb#L65) 
+
+#### MailTrap Environment Variables 
+To get the mailing running locally, create an .env file the following variables (go to SMTP credentials at Mailtrap interface, then just copy and paste them). Here is the env example file location [`app/.env.example`](https://github.com/aelhirach/insurance-adviser/blob/master/.env.example) 
+```shell
+MAIL_TRAP_HOST= 
+MAIL_TRAP_USERNAME=
+MAIL_TRAP_PASSWORD=
+MAIL_TRAP_ADDRESS= 
+```
 
 ### camelCase Payloads
 
 - [`config/initializers/active_model_serializer.rb`](https://github.com/aelhirach/insurance-adviser/blob/master/config/initializers/active_model_serializer.rb) - Active Model Serializer configuration for [camelCase](https://github.com/rails-api/active_model_serializers/blob/a032201a91cbca407211bca0392ba881eef1f7ba/docs/general/key_transforms.md) output
 - [`app/controllers/application_controller.rb#underscore_params!`](https://github.com/aelhirach/insurance-adviser/blob/master/app/controllers/application_controller.rb#L27) - Convert camelCase params into snake_case params
 
-### null_session
+### Skip verify_authenticity_token
 
-By default Ruby on Rails will throw an exception when a request doesn't contain a valid CSRF token. Since we're using JWT's to authenticate users instead of sessions, we can tell Rails to use an empty session instead of throwing an exception for requests by specifying `:null_session` in [app/controllers/application_controller.rb](https://github.com/aelhirach/insurance-adviser/blob/master/app/controllers/application_controller.rb#L2).
+By default Ruby on Rails will throw an exception when a request doesn't contain a valid CSRF token. For the sake of simplicity (In reality we must use a session or JWT Token) we can tell Rails to skip this verification [app/controllers/application_controller.rb](https://github.com/aelhirach/insurance-adviser/blob/master/app/controllers/application_controller.rb#L2).
 
 ### Authentication
 
