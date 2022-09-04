@@ -10,8 +10,8 @@ This application requires:
 - Ruby v3.1.2
 - Rails v6.1.6.1
 - Node v16.13.x
-- Yarn v1.22.x Package Manager 
-- PostgreSQL Database 
+- Yarn v1.22.x Package Manager
+- PostgreSQL Database
 
 Learn more about [Rails](http://railsapps.github.io/installing-rails.html).
 
@@ -28,7 +28,7 @@ To get the Rails server running locally:
 - `rake db:migrate` to make all database migrations
 - `rails s` to start the local server
 
-- Viste the Home page 
+- Viste the Home page
 ```
 http://localhost:3000
 ```
@@ -37,12 +37,12 @@ http://localhost:3000
 
 ## Dependencies
 
-Production 
+Production
 - [active_model_serializers](https://github.com/rails-api/active_model_serializers) -  JSON rendering gem used for making reusable templates for JSON output.
 - [faker](https://github.com/faker-ruby/faker) - This gem used to generate fake data.
-- [interactor-rails](https://github.com/collectiveidea/interactor-rails) - An interactor is a simple, single-purpose object, used to encapsulate your application's business logic. 
+- [interactor-rails](https://github.com/collectiveidea/interactor-rails) - An interactor is a simple, single-purpose object, used to encapsulate your application's business logic.
 
-Development & Test 
+Development & Test
 - [rspec-rails](https://github.com/rspec/rspec-rails) brings the RSpec testing framework to Ruby on Rails as a drop-in alternative to its default testing framework, Minitest.
 - [dotenv-rails](https://github.com/bkeepers/dotenv) - Shim to load environment variables from .env into ENV in development.
 - [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails) - This gem help in generating data for Test, is a fixtures replacement with a straightforward definition syntax.
@@ -52,33 +52,33 @@ Development & Test
 ## Important Folders
 
 - `app/models` - Contains the database models for the application where we can define methods, validations, queries, and relations to other models.
-- `app/views` - Contains the entry point (HomePage Template) which refers to the javascript folder with a pack_tag. It contains also the template of the mailers. 
+- `app/views` - Contains the entry point (HomePage Template) which refers to the javascript folder with a pack_tag. It contains also the template of the mailers.
 - `app/interactors` - Contains the application's business logic. Each interactor represents one thing that application does.
 - `app/serializers` - Contains templates for generating the JSON output for the API
 - `app/controllers` - Contains the controllers where requests are routed to their actions, where we find and manipulate our models and return JSON response.
 - `config` - Contains configuration files for our Rails application and for our database, along with an `initializers` folder for scripts that get run on boot.
 - `db` - Contains the migrations needed to create our database schema.
 
-## Helpers 
+## Helpers
 
 - [`app/models/concerns/array_validator.rb`](https://github.com/aelhirach/insurance-adviser/blob/master/app/models/concerns/array_validator.rb) - ArrayValidator : Validate an array data type in Ruby on Rails using a custom validator - PostGresQL allows arrays as a DB type.
 
 
 ## Configuration
-### MailTrap 
+### MailTrap
 MailTrap is a SMTP server designed to run in your dev/test environment, that is designed to catch any email you or your application is sending, and display it in a web interface instead of sending to real world.
 
 Here is how your SMTP server configuration to start sending email with Mailtrap.
-- [`app/config/environments/development.rb`](app/config/environments/development.rb#L41) 
-- [`app/config/environments/production.rb`](app/config/environments/development.rb#L65) 
+- [`app/config/environments/development.rb`](app/config/environments/development.rb#L41)
+- [`app/config/environments/production.rb`](app/config/environments/development.rb#L65)
 
-#### MailTrap Environment Variables 
-To get the mailing running locally, create an .env file the following variables (go to SMTP credentials at Mailtrap interface, then just copy and paste them). Here is the env example file location [`app/.env.example`](https://github.com/aelhirach/insurance-adviser/blob/master/.env.example) 
+#### MailTrap Environment Variables
+To get the mailing running locally, create an .env file the following variables (go to SMTP credentials at Mailtrap interface, then just copy and paste them). Here is the env example file location [`app/.env.example`](https://github.com/aelhirach/insurance-adviser/blob/master/.env.example)
 ```shell
-MAIL_TRAP_HOST= 
+MAIL_TRAP_HOST=
 MAIL_TRAP_USERNAME=
 MAIL_TRAP_PASSWORD=
-MAIL_TRAP_ADDRESS= 
+MAIL_TRAP_ADDRESS=
 ```
 
 ### camelCase Payloads
@@ -93,7 +93,6 @@ By default Ruby on Rails will throw an exception when a request doesn't contain 
 
 # Testing
 
-The test has not been implemented for this project 
 
 ### Running specs
 
@@ -113,4 +112,3 @@ $ bundle exec rspec spec/controllers/accounts_controller_spec.rb:8
 # See all options for running specs
 $ bundle exec rspec --help
 ```
-
