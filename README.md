@@ -96,9 +96,9 @@ By default Ruby on Rails will throw an exception when a request doesn't contain 
 # Testing
 
 ## Important Folders
-[factories](https://github.com/aelhirach/insurance-adviser/tree/master/spec/factories) : 
-[interactors specs](https://github.com/aelhirach/insurance-adviser/tree/master/spec/interactors).
-[models specs](https://github.com/aelhirach/insurance-adviser/tree/master/spec/models).
+- [factories](https://github.com/aelhirach/insurance-adviser/tree/master/spec/factories).
+- [interactors specs](https://github.com/aelhirach/insurance-adviser/tree/master/spec/interactors).
+- [models specs](https://github.com/aelhirach/insurance-adviser/tree/master/spec/models).
 
 ## Configuration
 - [`app/controllers/application_controller.rb#underscore_params!`](https://github.com/aelhirach/insurance-adviser/blob/master/spec/support/factory_bot.rb) - Factory_botg suppord folder. 
