@@ -18,6 +18,8 @@ Learn more about [Rails](http://railsapps.github.io/installing-rails.html).
 
 
 # Getting started
+For this project, I implemented only test for models : 
+
 
 To get the Rails server running locally:
 
@@ -46,7 +48,7 @@ Development & Test
 - [rspec-rails](https://github.com/rspec/rspec-rails) brings the RSpec testing framework to Ruby on Rails as a drop-in alternative to its default testing framework, Minitest.
 - [dotenv-rails](https://github.com/bkeepers/dotenv) - Shim to load environment variables from .env into ENV in development.
 - [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails) - This gem help in generating data for Test, is a fixtures replacement with a straightforward definition syntax.
-
+- [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) - houlda Matchers provides RSpec one-liners to test common Rails functionality that, if written by hand, would be much longer, more complex, and error-prone.
 
 
 ## Important Folders
@@ -69,8 +71,8 @@ Development & Test
 MailTrap is a SMTP server designed to run in your dev/test environment, that is designed to catch any email you or your application is sending, and display it in a web interface instead of sending to real world.
 
 Here is how your SMTP server configuration to start sending email with Mailtrap.
-- [`app/config/environments/development.rb`](app/config/environments/development.rb#L41)
-- [`app/config/environments/production.rb`](app/config/environments/development.rb#L65)
+- [`app/config/environments/development.rb`](https://github.com/aelhirach/insurance-adviser/blob/master/app/config/environments/development.rb#L41)
+- [`app/config/environments/production.rb`](https://github.com/aelhirach/insurance-adviser/blob/master/app/config/environments/development.rb#L65)
 
 #### MailTrap Environment Variables
 To get the mailing running locally, create an .env file the following variables (go to SMTP credentials at Mailtrap interface, then just copy and paste them). Here is the env example file location [`app/.env.example`](https://github.com/aelhirach/insurance-adviser/blob/master/.env.example)
@@ -93,7 +95,15 @@ By default Ruby on Rails will throw an exception when a request doesn't contain 
 
 # Testing
 
+## Important Folders
+[factories](https://github.com/aelhirach/insurance-adviser/tree/master/spec/factories) : 
+[interactors specs](https://github.com/aelhirach/insurance-adviser/tree/master/spec/interactors).
+[models specs](https://github.com/aelhirach/insurance-adviser/tree/master/spec/models).
 
+## Configuration
+- [`app/controllers/application_controller.rb#underscore_params!`](https://github.com/aelhirach/insurance-adviser/blob/master/spec/support/factory_bot.rb) - Factory_botg suppord folder. 
+- [`spec/rails_helper#require 'support/factory_bot'`](https://github.com/aelhirach/insurance-adviser/blob/master/spec/rails_helper.rb#L27) Include factory_bot synthax in specs. 
+- [`spec/rails_helper#Shoulda::Matchers.configure`](https://github.com/aelhirach/insurance-adviser/blob/master/spec/rails_helper.rb#L67) Configure shoulda-matchers gem to be used in sepcs.  
 ### Running specs
 
 ```sh
