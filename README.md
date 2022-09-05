@@ -48,7 +48,7 @@ Development & Test
 - [rspec-rails](https://github.com/rspec/rspec-rails) brings the RSpec testing framework to Ruby on Rails as a drop-in alternative to its default testing framework, Minitest.
 - [dotenv-rails](https://github.com/bkeepers/dotenv) - Shim to load environment variables from .env into ENV in development.
 - [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails) - This gem help in generating data for Test, is a fixtures replacement with a straightforward definition syntax.
-- [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) - houlda Matchers provides RSpec one-liners to test common Rails functionality that, if written by hand, would be much longer, more complex, and error-prone.
+- [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) - shoulda Matchers provides RSpec one-liners to test common Rails functionality that, if written by hand, would be much longer, more complex, and error-prone.
 
 
 ## Important Folders
