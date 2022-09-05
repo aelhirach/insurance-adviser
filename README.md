@@ -102,7 +102,7 @@ By default Ruby on Rails will throw an exception when a request doesn't contain 
 
 ## Configuration
 - [`app.json`](https://github.com/aelhirach/insurance-adviser/blob/master/app.json) - It declares environment variables and add-ons to execute the tests on Heroku CI. 
-- [`app/controllers/application_controller.rb#underscore_params!`](https://github.com/aelhirach/insurance-adviser/blob/master/spec/support/factory_bot.rb) - Factory_bot support folder. 
+- [`spec/support/factory_bot.rb`](https://github.com/aelhirach/insurance-adviser/blob/master/spec/support/factory_bot.rb) - Factory_bot support folder. 
 - [`spec/rails_helper#require 'support/factory_bot'`](https://github.com/aelhirach/insurance-adviser/blob/master/spec/rails_helper.rb#L27) Include factory_bot synthax in specs. 
 - [`spec/rails_helper#Shoulda::Matchers.configure`](https://github.com/aelhirach/insurance-adviser/blob/master/spec/rails_helper.rb#L67) Configure shoulda-matchers gem to be used in sepcs.  
 ### Running specs
