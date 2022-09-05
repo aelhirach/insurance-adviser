@@ -114,10 +114,10 @@ $ bundle exec rspec
 $ bundle exec rspec spec/models
 
 # Run a single spec file
-$ bundle exec rspec spec/controllers/accounts_controller_spec.rb
+$ bundle exec rspec spec/models/company.rb
 
 # Run a single example from a spec file (by line number)
-$ bundle exec rspec spec/controllers/accounts_controller_spec.rb:8
+$ bundle exec rspec spec/models/company.rb:8
 
 # See all options for running specs
 $ bundle exec rspec --help
