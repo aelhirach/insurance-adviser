@@ -1,7 +1,7 @@
 # ![Insurance Adviser](https://lh4.googleusercontent.com/-e7ASqd31bjU/AAAAAAAAAAI/AAAAAAAAAAA/GeVGekwYpDQ/s88-p-k-no-ns-nd/photo.jpg)
 
 # Live Demo
-A live demo is running with Heroku  at: http://insurance-adviser.herokuapp.com/
+A live demo is running with Heroku  at: https://insurance-adviser.herokuapp.com/
 
 # Requirements
 
