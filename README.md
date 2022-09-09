@@ -56,15 +56,12 @@ Development & Test
 - `app/models` - Contains the database models for the application where we can define methods, validations, queries, and relations to other models.
 - `app/views` - Contains the entry point (HomePage Template) which refers to the javascript folder with a pack_tag. It contains also the template of the mailers.
 - `app/interactors` - Contains the application's business logic. Each interactor represents one thing that application does.
-- `app/serializers` - Contains templates for generating the JSON output for the API
+- `app/serializers` - Contains templates for generating the JSON output for the API.
 - `app/controllers` - Contains the controllers where requests are routed to their actions, where we find and manipulate our models and return JSON response.
 - `config` - Contains configuration files for our Rails application and for our database, along with an `initializers` folder for scripts that get run on boot.
 - `db` - Contains the migrations needed to create our database schema.
 
 ## Helpers
-
-- [`app/models/concerns/array_validator.rb`](https://github.com/aelhirach/insurance-adviser/blob/master/app/models/concerns/array_validator.rb) - ArrayValidator : Validate an array data type in Ruby on Rails using a custom validator - PostGresQL allows arrays as a DB type.
-
 
 ## Configuration
 ### MailTrap
