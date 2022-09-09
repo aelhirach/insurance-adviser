@@ -1,6 +1,7 @@
 class Quote < ApplicationRecord
   enum deductible_formula: [:small,:medium, :large], _prefix: true, _default: :medium
   enum coverage_ceiling_formula: [:small,:large],  _prefix: true, _default: :small
+  
 
   belongs_to :company
 

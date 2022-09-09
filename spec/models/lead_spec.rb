@@ -1,41 +1,30 @@
 require 'rails_helper'
 RSpec.describe Lead, type: :model do
-  before(:all) do
-    @lead = create(:lead)
+
+
+  describe 'Associations' do
+    # use the Rspec implicit subject to test associations with shoulda-matchers
+    it { should have_many(:companies).dependent(:delete_all) }
+    it { should have_many(:quotes).through(:companies) }
   end
 
-  it "is valid with valid attributes" do
-   expect(@lead).to be_valid
+
+  describe 'Validations' do
+    # use the Rspec implicit subject to test ActiveRecord validations with shoulda-matchers
+    it { should validate_presence_of(:first_name) }
+    it { should validate_presence_of(:last_name) }
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:address) }
+    it { should validate_presence_of(:phone_number) }
+    it { should allow_value('user@example.com').for(:email)}
+
+    context 'email uniqueness' do
+      # we have to build a valid object before using a validate_uniqueness_of matcher
+      subject {  FactoryBot.build(:lead) } # We use FactoryBot to build instances of our models
+      it { should validate_uniqueness_of(:email).ignoring_case_sensitivity }
+    end
   end
 
-  it "has a unique email" do
-    lead2 = build(:lead, email: @lead.email)
-    expect(lead2).to_not be_valid
-  end
 
-  it "is not valid without a first_name" do
-    lead2 = build(:lead, first_name: nil)
-    expect(lead2).to_not be_valid
-  end
-
-  it "is not valid without a last_name" do
-    lead2 = build(:lead, last_name: nil)
-    expect(lead2).to_not be_valid
-  end
-
-  it "is not valid without a email" do
-    lead2 = build(:lead, email: nil)
-    expect(lead2).to_not be_valid
-  end
-
-  it "is not valid without a address" do
-    lead2 = build(:lead, address: nil)
-    expect(lead2).to_not be_valid
-  end
-
-  it "is not valid without a phone_number" do
-    lead2 = build(:lead, phone_number: nil)
-    expect(lead2).to_not be_valid
-  end
 
 end

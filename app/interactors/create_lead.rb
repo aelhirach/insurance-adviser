@@ -2,7 +2,7 @@ class CreateLead
   include Interactor
 
   def call
-    lead = Lead.find_by_email(context.lead[:email]) if context.lead && context.lead[:email].present?
+    lead = Lead.find_by_email(context.lead[:email]&.downcase) if context.lead && context.lead[:email].present?
     if lead
          lead.update(context.lead)
          context.lead = lead
