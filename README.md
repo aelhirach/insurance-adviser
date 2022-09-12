@@ -18,8 +18,6 @@ Learn more about [Rails](http://railsapps.github.io/installing-rails.html).
 
 
 # Getting started
-For this project, I implemented only test for models : 
-
 
 To get the Rails server running locally:
 
