@@ -89,7 +89,7 @@ By default Ruby on Rails will throw an exception when a request doesn't contain 
 
 
 ### Enable ssl 
-- [`config/environments/production.rb#config.force_ssl = true`](https://github.com/aelhirach/insurance-adviser/blob/master/config/environments/production.rb#L46) - force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+- [`config/environments/production.rb#config.force_ssl = true`](https://github.com/aelhirach/insurance-adviser/blob/master/config/environments/production.rb#L49) - force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
 
 
 # Testing
