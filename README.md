@@ -88,6 +88,10 @@ MAIL_TRAP_ADDRESS=
 By default Ruby on Rails will throw an exception when a request doesn't contain a valid CSRF token. For the sake of simplicity (In reality we must use a session or JWT Token) we can tell Rails to skip this verification [app/controllers/application_controller.rb](https://github.com/aelhirach/insurance-adviser/blob/master/app/controllers/application_controller.rb#L2).
 
 
+### Enable ssl 
+- [`config/environments/production.rb#config.force_ssl = true`](https://github.com/aelhirach/insurance-adviser/blob/master/config/environments/production.rb#L46) - force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+
+
 # Testing
 
 ## Important Folders
